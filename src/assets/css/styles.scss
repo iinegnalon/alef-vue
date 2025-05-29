@@ -100,8 +100,12 @@ p {
   background-color: $background-color;
 }
 
+.white-color {
+  color: white;
+}
+
 .black-color {
-  color: $black-color;
+  color: black;
 }
 
 .gray-color {
@@ -110,6 +114,14 @@ p {
 
 .gray-m-color {
   color: $gray-m-color;
+}
+
+.gray-l-color {
+  color: $gray-l-color;
+}
+
+.gray-s-color {
+  color: $gray-s-color;
 }
 
 a,
