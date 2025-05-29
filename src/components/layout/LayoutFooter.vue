@@ -2,7 +2,7 @@
 
 <template>
   <footer class="footer">
-    <p class="footer__text paragraph-3 black-color">all rights reserved</p>
+    <p class="footer__text paragraph-3 color-black">all rights reserved</p>
   </footer>
 </template>
 
@@ -10,11 +10,11 @@
 @import '@/assets/css/variables.scss';
 
 .footer {
-  background-color: $gray-m-color;
+  background-color: $color-gray-m;
   padding: 1.5rem;
   text-align: center;
 
-  @media screen and (min-width: $desktop-breakpoint) {
+  @media screen and (min-width: $breakpoint-tablet) {
     padding: 2rem;
   }
 

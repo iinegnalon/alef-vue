@@ -1,12 +1,13 @@
 // Colors
-$primary-color: #01A7FD;
-$secondary-color: #111111;
-$background-color: #FFFFFF;
-$gray-color: #1111117A;
-$gray-m-color: #FAFAFA;
-$gray-l-color: #F1F1F1;
-$gray-s-color: #D4D4D4;
+$color-primary: #01A7FD;
+$color-secondary: #111111;
+$color-background: #FFFFFF;
+$color-error: #DB524E;
+$color-gray: #1111117A;
+$color-gray-m: #FAFAFA;
+$color-gray-l: #F1F1F1;
+$color-gray-s: #D4D4D4;
 
 // Device breakpoints
-$tablet-breakpoint: 576px;
-$desktop-breakpoint: 768px;
+$breakpoint-tablet: 576px;
+$breakpoint-desktop: 768px;

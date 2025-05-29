@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const props = withDefaults(
+withDefaults(
   defineProps<{
     variant?: string; // 'primary' | 'outlined' | 'text'
     disabled?: boolean;
@@ -49,6 +49,7 @@ const props = withDefaults(
   outline: none;
   border: none;
   background: none;
+  width: fit-content;
 
   &:active:not(:disabled) {
     transform: scale(0.98);
@@ -61,27 +62,28 @@ const props = withDefaults(
 
   // Primary
   &--primary {
-    background-color: $primary-color;
+    background-color: $color-primary;
     color: white;
 
     &:hover:not(:disabled) {
-      background-color: darken($primary-color, 5%);
+      background-color: darken($color-primary, 5%);
     }
   }
 
   // Outlined
   &--outlined {
-    border: 2px solid $primary-color;
-    color: $primary-color;
+    border: 2px solid $color-primary;
+    color: $color-primary;
 
     &:hover:not(:disabled) {
-      background-color: rgba($primary-color, 0.05);
+      background-color: rgba($color-primary, 0.05);
     }
   }
 
   // Text
   &--text {
-    color: $primary-color;
+    color: $color-primary;
+    padding: 0;
 
     &:hover:not(:disabled) {
       text-decoration: underline;

@@ -6,7 +6,7 @@ body {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0;
-  color: $secondary-color;
+  color: $color-secondary;
   margin: 0;
   padding: 0;
 }
@@ -88,40 +88,44 @@ p {
   font-weight: 700;
 }
 
-.primary-color {
-  color: $primary-color;
+.color-primary {
+  color: $color-primary;
 }
 
-.secondary-color {
-  color: $secondary-color;
+.color-secondary {
+  color: $color-secondary;
 }
 
-.background-color {
-  background-color: $background-color;
+.color-background {
+  background-color: $color-background;
 }
 
-.white-color {
+.color-error {
+  color: $color-error;
+}
+
+.color-white {
   color: white;
 }
 
-.black-color {
+.color-black {
   color: black;
 }
 
-.gray-color {
-  color: $gray-color;
+.color-gray {
+  color: $color-gray;
 }
 
-.gray-m-color {
-  color: $gray-m-color;
+.color-gray-m {
+  color: $color-gray-m;
 }
 
-.gray-l-color {
-  color: $gray-l-color;
+.color-gray-l {
+  color: $color-gray-l;
 }
 
-.gray-s-color {
-  color: $gray-s-color;
+.color-gray-s {
+  color: $color-gray-s;
 }
 
 a,
@@ -133,7 +137,7 @@ a:active {
 }
 
 // Tablet
-@media screen and (min-width: $tablet-breakpoint) {
+@media screen and (min-width: $breakpoint-tablet) {
   body {
     font-size: 17px;
     line-height: 26px;
@@ -192,7 +196,7 @@ a:active {
 }
 
 // Desktop
-@media screen and (min-width: $desktop-breakpoint) {
+@media screen and (min-width: $breakpoint-desktop) {
   body {
     font-size: 18px;
     line-height: 28px;

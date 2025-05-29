@@ -1,22 +1,23 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, type Ref, ref } from 'vue';
 
 const props = withDefaults(
   defineProps<{
-    modelValue?: string;
+    modelValue?: string | number;
     id?: string;
     label?: string;
     type?: string;
     placeholder?: string;
+    error?: boolean | string;
   }>(),
   {
     type: 'text',
   },
 );
 
-defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue']);
 
-const inputRef = ref(null);
+const inputRef: Ref<HTMLInputElement | null> = ref(null);
 
 onMounted(() => {
   if (props.type === 'number' && inputRef.value) {
@@ -32,11 +33,15 @@ onBeforeUnmount(() => {
   }
 });
 
-function disableWheelScroll(event) {
+function updateValue(event: Event) {
+  emit('update:modelValue', event.target?.value);
+}
+
+function disableWheelScroll(event: WheelEvent) {
   event.preventDefault();
 }
 
-function handleKeydown(event) {
+function handleKeydown(event: KeyboardEvent) {
   if (props.type !== 'number') {
     return;
   }
@@ -49,22 +54,32 @@ function handleKeydown(event) {
 </script>
 
 <template>
-  <label class="base-input">
-    <span v-if="label" class="base-input__label paragraph-3 gray-color">
-      {{ label }}
+  <div>
+    <label :class="{ 'base-input--error': !!error }" class="base-input">
+      <span v-if="label" class="base-input__label paragraph-3 color-gray">
+        {{ label }}
+      </span>
+
+      <input
+        :id="id"
+        ref="inputRef"
+        :placeholder="placeholder"
+        :type="type"
+        :value="modelValue"
+        class="base-input__field paragraph-2 color-black"
+        v-bind="$attrs"
+        @input="updateValue"
+        @keydown="handleKeydown"
+      />
+    </label>
+
+    <span
+      v-if="typeof error === 'string'"
+      class="base-input__error paragraph-3 color-error"
+    >
+      {{ error }}
     </span>
-    <input
-      :id="id"
-      ref="inputRef"
-      :placeholder="placeholder"
-      :type="type"
-      :value="modelValue"
-      class="base-input__field paragraph-2 black-color"
-      v-bind="$attrs"
-      @input="$emit('update:modelValue', $event.target.value)"
-      @keydown="handleKeydown"
-    />
-  </label>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -74,7 +89,7 @@ function handleKeydown(event) {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  border: 1px solid $gray-l-color;
+  border: 1px solid $color-gray-l;
   border-radius: 4px;
   padding: 0.5rem 1rem;
   background-color: white;
@@ -101,13 +116,27 @@ function handleKeydown(event) {
     }
 
     &::placeholder {
-      color: $gray-s-color;
+      color: $color-gray-s;
     }
   }
 
   &:focus-within {
-    border-color: $primary-color;
-    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+  }
+
+  &--error {
+    border-color: $color-error;
+
+    &:focus-within {
+      border-color: $color-error;
+      box-shadow: 0 0 0 2px rgba($color-error, 0.2);
+    }
+  }
+
+  &__error {
+    margin-top: 0.25rem;
+    color: $color-error;
   }
 }
 </style>

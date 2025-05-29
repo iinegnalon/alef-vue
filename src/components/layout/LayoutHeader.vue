@@ -11,14 +11,14 @@ const route = useRoute();
     <nav class="nav">
       <RouterLink
         :class="{ active: route.path === '/' }"
-        class="nav__link paragraph-2 gray-color"
+        class="nav__link paragraph-2 color-gray"
         to="/"
       >
         Форма
       </RouterLink>
       <RouterLink
         :class="{ active: route.path === '/preview' }"
-        class="nav__link paragraph-2 gray-color"
+        class="nav__link paragraph-2 color-gray"
         to="/preview"
       >
         Превью
@@ -36,9 +36,9 @@ const route = useRoute();
   align-items: center;
   padding: 1rem;
   position: relative;
-  border-bottom: 1px solid $gray-color;
+  border-bottom: 1px solid $color-gray;
 
-  @media screen and (min-width: $desktop-breakpoint) {
+  @media screen and (min-width: $breakpoint-tablet) {
     height: 76px;
     flex-direction: row;
     justify-content: center;
@@ -49,7 +49,7 @@ const route = useRoute();
     height: auto;
     margin-bottom: 1rem;
 
-    @media screen and (min-width: $desktop-breakpoint) {
+    @media screen and (min-width: $breakpoint-tablet) {
       width: 175px;
       position: absolute;
       left: 1rem;
@@ -84,7 +84,7 @@ const route = useRoute();
       }
 
       &.active {
-        color: $secondary-color;
+        color: $color-secondary;
 
         &::after {
           width: 100%;

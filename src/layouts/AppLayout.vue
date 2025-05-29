@@ -27,7 +27,7 @@ import LayoutFooter from '@/components/layout/LayoutFooter.vue';
     flex: 1;
     padding: 1rem;
 
-    @media screen and (min-width: $desktop-breakpoint) {
+    @media screen and (min-width: $breakpoint-tablet) {
       padding: 2rem;
     }
   }
