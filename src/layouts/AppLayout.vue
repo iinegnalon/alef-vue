@@ -4,7 +4,7 @@ import LayoutFooter from '@/components/layout/LayoutFooter.vue';
 </script>
 
 <template>
-  <div>
+  <div class="app-layout">
     <LayoutHeader />
 
     <main>
@@ -15,4 +15,21 @@ import LayoutFooter from '@/components/layout/LayoutFooter.vue';
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '@/assets/css/variables.scss';
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    flex: 1;
+    padding: 1rem;
+
+    @media screen and (min-width: $desktop-breakpoint) {
+      padding: 2rem;
+    }
+  }
+}
+</style>

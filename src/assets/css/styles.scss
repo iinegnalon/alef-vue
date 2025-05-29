@@ -2,25 +2,114 @@
 
 // Mobile
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Arial', sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 24px;
+  letter-spacing: 0;
   color: $secondary-color;
   margin: 0;
   padding: 0;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 900;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
 }
 
 p {
   font-size: 1em;
-  margin-bottom: 1.2em;
+  margin-bottom: 0;
+}
+
+.paragraph-1 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.paragraph-1-bold {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.paragraph-2 {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.paragraph-2-medium {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.paragraph-3 {
+  font-size: 13px;
+  line-height: normal;
+  font-weight: 400;
+}
+
+.paragraph-3-bold {
+  font-size: 13px;
+  line-height: normal;
+  font-weight: 700;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.secondary-color {
+  color: $secondary-color;
+}
+
+.background-color {
+  background-color: $background-color;
+}
+
+.black-color {
+  color: $black-color;
+}
+
+.gray-color {
+  color: $gray-color;
+}
+
+.gray-m-color {
+  color: $gray-m-color;
 }
 
 a,
@@ -31,23 +120,58 @@ a:active {
   color: inherit;
 }
 
-.page-width {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
 // Tablet
 @media screen and (min-width: $tablet-breakpoint) {
   body {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 26px;
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 64px;
+    line-height: 72px;
   }
 
   h2 {
-    font-size: 1.8em;
+    font-size: 56px;
+    line-height: 64px;
+  }
+
+  h3 {
+    font-size: 44px;
+    line-height: 52px;
+  }
+
+  h4 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  h5 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h6 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .paragraph-1,
+  .paragraph-1-bold {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .paragraph-2,
+  .paragraph-2-medium {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .paragraph-3,
+  .paragraph-3-bold {
+    font-size: 14px;
   }
 
   p {
@@ -58,15 +182,54 @@ a:active {
 // Desktop
 @media screen and (min-width: $desktop-breakpoint) {
   body {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 72px;
+    line-height: 80px;
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  h3 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  h4 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  h5 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h6 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .paragraph-1,
+  .paragraph-1-bold {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .paragraph-2,
+  .paragraph-2-medium {
+    font-size: 16px;
+  }
+
+  .paragraph-3,
+  .paragraph-3-bold {
+    font-size: 15px;
   }
 
   p {
