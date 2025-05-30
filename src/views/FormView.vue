@@ -24,12 +24,17 @@ function initUser() {
     return;
   }
 
+  const childrenCopy = userStore.user.children.map((child) => ({
+    name: child.name,
+    age: child.age,
+  }));
+
   user.value = {
     name: userStore.user.name,
     age: userStore.user.age,
-    children: [...userStore.user.children],
+    children: childrenCopy,
   };
-  children.value = [...userStore.user.children];
+  children.value = childrenCopy;
 }
 
 function addChild() {
@@ -67,7 +72,7 @@ function validateUser() {
 </script>
 
 <template>
-  <section class="form-page">
+  <div class="form-page">
     <div class="form-section form-section_user">
       <div class="form-section__header">
         <div class="form-section__title paragraph-2-medium color-black">
@@ -75,19 +80,21 @@ function validateUser() {
         </div>
       </div>
 
-      <BaseInput
-        v-model="user.name"
-        :error="!valid && !user.name ? 'Пожалуйста, укажите имя' : false"
-        label="Имя"
-        placeholder="Введите имя"
-      />
-      <BaseInput
-        v-model="user.age"
-        :error="!valid && !user.age ? 'Пожалуйста, укажите возраст' : false"
-        label="Возраст"
-        placeholder="Введите возраст"
-        type="number"
-      />
+      <div class="form-section__inputs">
+        <BaseInput
+          v-model="user.name"
+          :error="!valid && !user.name ? 'Пожалуйста, укажите имя' : false"
+          label="Имя"
+          placeholder="Введите имя"
+        />
+        <BaseInput
+          v-model="user.age"
+          :error="!valid && !user.age ? 'Пожалуйста, укажите возраст' : false"
+          label="Возраст"
+          placeholder="Введите возраст"
+          type="number"
+        />
+      </div>
     </div>
 
     <div class="form-section form-section_children">
@@ -134,7 +141,7 @@ function validateUser() {
     </div>
 
     <BaseButton class="form-save-button" @click="save">Сохранить</BaseButton>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -150,7 +157,7 @@ function validateUser() {
 .form-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-bottom: 2.75rem;
 
   &_children {
@@ -168,6 +175,12 @@ function validateUser() {
       flex-direction: row;
       justify-content: space-between;
     }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 }
 
